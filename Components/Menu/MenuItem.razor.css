@@ -1,0 +1,11 @@
+﻿.group-root{
+    cursor:pointer;
+    color:blue;
+    font-weight:bold;
+}
+.group-hidden {
+    display: none;
+}
+.group-visible {
+    display: block;
+}

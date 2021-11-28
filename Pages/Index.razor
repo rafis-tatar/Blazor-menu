@@ -1,0 +1,20 @@
+﻿@page "/"
+@using MenuComponent.Components.Menu
+@using MenuComponent.Data
+@inject MenuSourceService service;
+
+<PageTitle>Menu example</PageTitle>
+<Menu Source=Source></Menu>
+
+@code {
+
+    private int currentCount = 0;
+    private List<IMenuItem> Source{ get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Source = await service.GetMenuItemstAsync();
+
+        await base.OnInitializedAsync();
+    }   
+}

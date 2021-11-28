@@ -1,0 +1,20 @@
+﻿ <li>
+    @if (Item is IMenuElement element)
+    {
+        <a href=@element.Link>
+            @element.Title
+        </a>
+    }
+    else if (Item is IMenuGroup group)
+    {
+        <div @onclick="@(()=>_isHidden=!_isHidden)" class="group-root">
+            <span>@group.Title</span>
+        </div>        
+        <ul class="@(_isHidden?"group-hidden":"group-visible")">        
+            @foreach (var item in group.Childs)
+            {
+                <MenuItem Item="item"></MenuItem>
+            }
+        </ul>
+    }
+</li>
